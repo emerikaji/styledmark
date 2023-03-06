@@ -21,8 +21,10 @@ var (
 
 func init() {
 	md = markdown.New(markdown.XHTMLOutput(true), markdown.HTML(true))
-	markdownFlag = flag.String("in", "", "Path to input file")
-	nameFlag = flag.String("out", "out", "Name of output file")
+	markdownFlag = flag.String("input", "", "path to input file")
+	flag.StringVar(markdownFlag, "i", *markdownFlag, "alias for -input")
+	nameFlag = flag.String("output", "out", "name of output file")
+	flag.StringVar(nameFlag, "o", *nameFlag, "alias for -output")
 	flag.Parse()
 }
 
