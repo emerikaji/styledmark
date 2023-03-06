@@ -8,5 +8,6 @@ clean:
 	rm styledmark.css
 	rm out.html
 
-run:
+test:
+	go build
 	./styledmark -i README.md
