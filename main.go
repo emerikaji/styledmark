@@ -9,17 +9,69 @@ import (
 )
 
 const (
-	css = `h1, h2, h3, h4, h5, h6 {
-	color: black;
+	css = `@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+body {
+	font-family: 'Merriweather', serif;
+	font-size: 16px;
+	margin-left: 64px;
+	margin-right: 64px;
+	margin-top: 32px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: 900;
+}
+
+h1 {
+	font-size: 64px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 48px;
+}
+
+h3 {
+	font-size: 32px;
+}
+
+h4 {
+	font-size: 24px;
+}
+
+h5 {
+	font-size: 16px;
+}
+
+h6 {
+	font-size: 12px;
 }
 
 a {
-	font-style: normal;
+	text-decoration: none;
+	color:darkslateblue;
 }
+
+a:hover {
+	color:slateblue;
+}
+
+pre {
+	border: 2px;
+	border-style: solid;
+	border-color: black;
+	word-wrap: normal;
+	white-space: pre-wrap;
+	tab-size: 4;
+}	
 `
 	head = `<html lang="fr">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/obsidian.min.css">
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 <link href="styledmark.css" rel="stylesheet">
 <title>Out</title>
 </head>
