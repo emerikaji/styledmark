@@ -13,9 +13,7 @@ const (
 body {
 	font-family: 'Merriweather', serif;
 	font-size: 16px;
-	margin-left: 64px;
-	margin-right: 64px;
-	margin-top: 32px;
+	margin: 32px 64px 32px 64px;
 }
 
 h1,h2,h3,h4,h5,h6 {
