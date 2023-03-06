@@ -9,8 +9,24 @@ import (
 )
 
 const (
-	head = "<html lang=\"fr\">\n<head>\n<meta charset=\"UTF-8\">\n<link href=\"style.css\" rel=\"stylesheet\">\n<title>Out</title>\n</head>\n<body>\n"
-	tail = "</body>\n</html>\n"
+	css = `h1, h2, h3, h4, h5, h6 {
+	color: black;
+}
+
+a {
+	font-style: normal;
+}
+`
+	head = `<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link href="styledmark.css" rel="stylesheet">
+<title>Out</title>
+</head>
+<body>
+`
+	tail = `</body>
+</html>`
 )
 
 var (
@@ -36,8 +52,15 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	err = os.WriteFile(*nameFlag+".html", []byte(head+md.RenderToString(b)+tail), 0644)
+	err = os.WriteFile(*nameFlag+".html", []byte(head+md.RenderToString(b)+tail), 0666)
 	if err != nil {
 		panic(err)
+	}
+	_, err = os.Stat("styledmark.css")
+	if os.IsNotExist(err) {
+		err = os.WriteFile("styledmark.css", []byte(css), 0666)
+		if err != nil {
+			panic(err)
+		}
 	}
 }
